@@ -1,0 +1,25 @@
+Sun Jun 30 11:23:15 EDT 2002 AvalonLogSystem initialized using logfile d:\public\resin\webapps\logon\velocity.log
+Sun Jun 30 11:23:15 EDT 2002   [info]   [info] Default Properties File: org\apache\velocity\runtime\defaults\velocity.properties
+Sun Jun 30 11:23:15 EDT 2002   [info] Resource Loader Instantiated: org.apache.velocity.runtime.resource.loader.FileResourceLoader
+Sun Jun 30 11:23:15 EDT 2002   [info] FileResourceLoader : initialization starting.
+Sun Jun 30 11:23:15 EDT 2002   [info] FileResourceLoader : adding path 'd:\public\resin\webapps\logon\'
+Sun Jun 30 11:23:15 EDT 2002   [info] FileResourceLoader : initialization complete.
+Sun Jun 30 11:23:15 EDT 2002   [info] Loaded Pluggable Directive: org.apache.velocity.runtime.directive.Literal
+Sun Jun 30 11:23:15 EDT 2002   [info] Loaded Pluggable Directive: org.apache.velocity.runtime.directive.Macro
+Sun Jun 30 11:23:15 EDT 2002   [info] Loaded Pluggable Directive: org.apache.velocity.runtime.directive.Parse
+Sun Jun 30 11:23:15 EDT 2002   [info] Loaded Pluggable Directive: org.apache.velocity.runtime.directive.Include
+Sun Jun 30 11:23:15 EDT 2002   [info] Loaded Pluggable Directive: org.apache.velocity.runtime.directive.Foreach
+Sun Jun 30 11:23:16 EDT 2002   [info] Created: 20 parsers.
+Sun Jun 30 11:23:16 EDT 2002   [info] Velocimacro : initialization starting.
+Sun Jun 30 11:23:16 EDT 2002   [info] Velocimacro : adding VMs from VM library template : VM_global_library.vm
+Sun Jun 30 11:23:16 EDT 2002  [error] ResourceManager : unable to find resource 'VM_global_library.vm' in any resource loader.
+Sun Jun 30 11:23:16 EDT 2002   [info] Velocimacro : error using  VM library template VM_global_library.vm : org.apache.velocity.exception.ResourceNotFoundException: Unable to find resource 'VM_global_library.vm'
+Sun Jun 30 11:23:16 EDT 2002   [info] Velocimacro : allowInline = true : VMs can be defined inline in templates
+Sun Jun 30 11:23:16 EDT 2002   [info] Velocimacro : allowInlineToOverride = false : VMs defined inline may NOT replace previous VM definitions
+Sun Jun 30 11:23:16 EDT 2002   [info] Velocimacro : allowInlineLocal = false : VMs defined inline will be  global in scope if allowed.
+Sun Jun 30 11:23:16 EDT 2002   [info] Velocimacro : messages on  : VM system will output logging messages
+Sun Jun 30 11:23:16 EDT 2002   [info] Velocimacro : initialization complete.
+Sun Jun 30 11:23:16 EDT 2002   [info] Velocity successfully started.
+Sun Jun 30 11:23:16 EDT 2002   [info] ResourceManager : found /pages/Welcome.vm with loader org.apache.velocity.runtime.resource.loader.FileResourceLoader
+Sun Jun 30 11:23:16 EDT 2002   [warn] org.apache.velocity.runtime.exception.ReferenceException: reference : template = /pages/Welcome.vm [line 4,column 13] : $link.getBaseRef() is not a valid reference.
+Sun Jun 30 11:23:16 EDT 2002   [warn] org.apache.velocity.runtime.exception.ReferenceException: reference : template = /pages/Welcome.vm [line 14,column 14] : $link.setForward('logon') is not a valid reference.

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping 
+	PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN" 
+	"http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd">
+
+<hibernate-mapping>
+
+<class name="Notes" 
+       table="notes">
+	 <id name="id" unsaved-value="0">
+		<generator class="sequence"/>
+	</id>
+ 
+  <property name="owner" type="String"/>
+  <property name="info" type="String"/>
+  <property name="count" type="integer"/>
+</class>
+
+</hibernate-mapping>

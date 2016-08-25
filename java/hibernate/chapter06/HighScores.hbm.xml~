@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping 
+	PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN" 
+	"http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd">
+
+<hibernate-mapping>
+<class name="HighScores" 
+	 table="highscores">
+	<id name="id">
+		<generator class="native"/>
+	</id>
+	
+	<set name="games" table="highscores_gamescores">
+		<key column="parent_id"/>
+		<one-to-many class="GameScore"/>
+	</set>
+	<property name="name" type="string"/>
+</class>
+
+<class name="GameScore" 
+	 table="gamescores">
+	<id name="id">
+		<generator class="native"/>
+	</id>
+      <property name="name" />
+</class>
+
+</hibernate-mapping>

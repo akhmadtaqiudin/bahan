@@ -1,0 +1,38 @@
+package example.encryption; 
+
+import java.sql.*;
+
+public class EncryptedImage { 
+  private int id;
+  private String filename; 
+  private Blob data;
+
+  public EncryptedImage() {
+  }
+
+  public int getId() {
+    return id;
+  }
+
+  public void setId(int id) {
+    this.id = id;
+  }
+
+  public String getFilename( ) {
+    return filename;
+  }
+
+  public void setFilename(String s) { 
+    this.filename = s;
+  }
+
+  public Blob getData() {
+    return data;
+  }
+
+  public void setData(byte[] b) {
+   // convert data to blob   
+****
+  this.data = b;
+  }
+}

@@ -1,0 +1,105 @@
+
+
+<project name="Survey OM (Chapter 13)" default="compile" basedir=".">
+
+  <!-- Give user a chance to override without editing this file or typing -D -->
+  <property file="build.properties"/>
+  <property file="${user.home}/.ant.properties"/>
+
+  <!-- Name of project and version, used to create filenames -->
+  <property name="name" value="survey-om"/>
+  <property name="version" value="chapter13"/>
+    
+  <!-- set global properties for this build -->
+  <property name="src.dir" value="src/java"/>
+  <property name="etc.dir" value="etc"/>
+  <property name="lib.dir" value="lib"/>
+  <property name="build.dir" value="build"/>
+  <property name="classes.dir" value="${build.dir}/classes"/>
+
+  <path id="xdoclet.class.path">   
+    <fileset dir="${lib.dir}/xdoclet-1.2.1">
+     <include name="*.jar"/>
+    </fileset>        
+  </path>
+  
+  <taskdef
+    name="hibernatedoclet"
+    classname="xdoclet.modules.hibernate.HibernateDocletTask"
+    classpathref="xdoclet.class.path"
+    />  
+ 
+  <path id="lib.class.path">
+    <fileset dir="${lib.dir}">
+      <include name="**/*.jar"/>
+    </fileset>
+  </path>
+
+  <patternset id="jar.files">
+    <include name="**/*.dtd"/>
+    <include name="**/*.xml"/>
+    <include name="**/*.xslt"/>
+  </patternset>
+
+
+
+  <!-- Targets Available -->
+
+  <target name="clean" description="Cleans up directories">
+    <delete dir="${build.dir}"/>
+  </target>
+
+
+
+  <target name="init"  description="Initialize the build">
+    
+    <echo message="Build ${name}-${version}"/>
+
+    <mkdir dir="${classes.dir}"/>
+    <copy todir="${classes.dir}">
+      <fileset dir="${src.dir}">
+        <patternset refid="jar.files"/>
+      </fileset>
+    </copy>
+
+  </target>
+
+  <target name="compile" depends="init" description="Compile the Java source code">  
+    <javac
+      srcdir="${src.dir}" 
+      destdir="${classes.dir}"
+      classpathref="lib.class.path" 
+      debug="${javac.debug}"
+      optimize="${javac.optimize}"
+      nowarn="on">
+    </javac>
+  </target>
+ 
+    <target name="hibernate" depends="compile" description="Generate hibernate documents">
+        <hibernatedoclet
+            destdir="${classes.dir}"
+            verbose="false"
+            force="true">
+
+            <fileset dir="${src.dir}">
+            <include name="**/*.java"/>
+            </fileset>
+            
+            <hibernatecfg
+                jdbcUrl="jdbc:hsqldb:hsql://localhost"
+                driver="org.hsqldb.jdbcDriver"
+                dialect="net.sf.hibernate.dialect.HSQLDialect"
+                userName="sa"
+                password=""                
+            />
+            
+            <hibernate version="2.0" />
+
+        </hibernatedoclet>
+    </target>
+
+
+  
+  
+  
+</project>

@@ -1,0 +1,20 @@
+class arrayDimensi1{
+    public static void main(String[]arg){
+        final int SIZE=5;
+        
+        int n[]={15,9,1,7,5};
+        
+        for(int i=0;i< SIZE;i++){
+                    System.out.printf("%5d", n[i]);
+            
+        for(int j=1;j<=n[i];j++)
+            System.out.printf("%s","*");
+            System.out.printf("\n");
+        }
+    }
+}
+
+    
+                              
+                              
+            

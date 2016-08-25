@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping 
+	PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN" 
+	"http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd">
+
+<hibernate-mapping>
+<class name="Account">
+  <meta attribute="extends">
+    Loggable 
+  </meta>
+
+  <id type="integer">
+    <generator class="native"/>
+  </id>
+
+  <property name="name" type="string">
+  <meta attribute="field-description">
+    The name of the account - should be full name
+    @see StudentName 
+  </meta>
+  </property>
+
+  <property name="acctnum" type="string">
+  <meta attribute="field-description">
+    The account number of the account 
+</meta>
+  </property>
+
+
+  <property name="zipcode" type="integer"> 
+   <meta attribute="field-description">
+    The zipcode of the account
+    @see FullZipcode 
+  </meta>
+  <meta attribute="finder-method">findByZipcode</meta>
+ </property>
+
+</class>
+</hibernate-mapping>

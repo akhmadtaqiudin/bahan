@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping 
+	PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN" 
+	"http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd">
+
+<hibernate-mapping>
+<class 	name="example.util.Support" 
+table="support" mutable="false"> 
+<id	name="id"
+type="integer"
+unsaved-value="0">
+<generator	class="hilo"/>
+</id>
+
+<property	name="name"/>
+<property	name="support"/>
+</class>
+</hibernate-mapping>

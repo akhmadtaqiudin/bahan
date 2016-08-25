@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE hibernate-mapping 
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd">
+
+<hibernate-mapping> 
+	<class name="CD"
+		table="cd">
+		<id name="Id" 
+		      type="string"
+		      unsaved-value="null">
+			<column name="ID" 
+				  sql-type="text" 
+				  not-null="true"/> 
+			<generator class="uuid.string"/>
+		</id>
+
+		<property name="title"/>
+		<property name="artist"/>
+		<property name="purchasedate" type="date"/> 
+		<property name="cost" type="double"/> 
+	</class>
+</hibernate-mapping>

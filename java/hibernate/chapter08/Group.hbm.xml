@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping 
+	PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN" 
+	"http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd">
+
+<hibernate-mapping>
+
+<class name="Group" 
+	 table="grouptable"
+       discriminator-value="parent">
+
+	 <id name="id" unsaved-value="0">
+		<generator class="native"/>
+	</id>
+
+      <discriminator column="type"/>
+
+
+	<list name="stories" cascade="all">
+		<key column="parent_id"/>
+		<index column="idx"/>
+		<one-to-many class="Story"/>
+	</list>
+
+	<property name="name" type="string"/>	
+      <property name="active" type="boolean"/>
+
+      <many-to-one name="primaryserver" class="Server" column="server_id" cascade="all"/>
+
+      <subclass name="Newsgroup"
+                discriminator-value="newsgroup">
+		<property name="first"/>
+		<property name="last"/>
+      </subclass>
+</class>
+
+<class name="Story" 
+	 table="story">
+	 <id name="id" unsaved-value="0">
+		<generator class="native"/>
+	</id>
+      <property name="info"/>
+</class>
+
+<class name="Server" 
+       table="servertable">
+	 <id name="id" unsaved-value="0">
+		<generator class="native"/>
+	</id>
+ 
+  <property name="servername"/>
+  <property name="ip"/>
+  <property name="port"/>
+  <property name="username"/>
+  <property name="password"/>
+</class>
+
+</hibernate-mapping>

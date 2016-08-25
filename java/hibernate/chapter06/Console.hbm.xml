@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping 
+	PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN" 
+	"http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd">
+
+<hibernate-mapping>
+<class name="Console" 
+	 table="console">
+	<id name="id" unsaved-value="0">
+		<generator class="native"/>
+	</id>
+	
+	<map name="games"
+           table="game_instructions" sort="GameComparator" cascade="all">
+		<key column="parent_id"/>
+		<index-many-to-many column="game_id" class="Game"/>
+		<many-to-many column="instructions_id" class="Instructions"/>
+	</map>
+	<property name="name" type="string"/>
+</class>
+
+<class name="Game" 
+	 table="game">
+	<id name="id" unsaved-value="0">
+		<generator class="native"/>
+	</id>
+	<property name="name" type="string"/>
+</class>
+
+<class name="Instructions" 
+	 table="instructions">
+	<id name="id" unsaved-value="0">
+		<generator class="native"/>
+	</id>
+	<property name="info" type="string"/>
+</class>
+
+</hibernate-mapping>

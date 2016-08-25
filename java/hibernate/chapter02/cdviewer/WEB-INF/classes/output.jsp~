@@ -1,0 +1,21 @@
+<%@ page import="java.util.*" %>
+
+<% ServletContext app = getServletContext(); %>
+
+<html>
+<head>
+<title>Output</title>
+</head>
+
+<body>
+<% 
+   List cds = (List)app.getAttribute("cds"); 
+
+   Iterator iter = cds.iterator();
+   while (iter.hasNext()) {
+	   CD cd = (CD)iter.next();
+	   out.println(cd.getTitle());
+   }
+%>
+</body>
+</html>

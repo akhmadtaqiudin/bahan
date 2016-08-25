@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<!DOCTYPE struts-config PUBLIC
+          "-//Apache Software Foundation//DTD Struts Configuration 1.0//EN"
+          "http://jakarta.apache.org/struts/dtds/struts-config_1_0.dtd">
+
+<struts-config>
+
+  <form-beans>
+    <form-bean name="registerForm" type="RegisterForm"/>
+  </form-beans>
+ 
+  <action-mappings>
+    <action    path="/struts"
+               type="RegisterAction"
+               name="registerForm">
+      <forward name="success" path="/success.vm"/>
+      <forward name="failure" path="/failure.vm"/>
+    </action>
+</action-mappings>
+
+<plug-in className=”edu.arbor.util.pluin.HibernatePlugIn”>
+  <set-property property=”configFilePath” value=”/
+  <set-property property=”storeInServletContext” value=”true”/>
+</plug-in>
+</struts-config>

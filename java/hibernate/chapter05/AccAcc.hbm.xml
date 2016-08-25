@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping 
+	PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN" 
+	"http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd">
+
+<hibernate-mapping>
+<class name="example.accounting.AccAcc" 
+	 table="accacc">
+	<composite-id name="id"
+			  class="string">
+		<key-property name="accountnum"/> 
+		<key-property name="acctype"/> 
+		<key-property name="name"/>
+	</composite-id>
+</class>
+</hibernate-mapping>

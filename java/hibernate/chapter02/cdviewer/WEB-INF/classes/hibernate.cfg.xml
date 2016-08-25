@@ -1,0 +1,14 @@
+<hibernate-configuration>
+<session-factory>
+<property name="connection.datasource">
+  java:comp/env/jdbc/cdviewer
+</property>
+
+<property name="show_sgl">false</property>
+<property name="dialect">
+net.sf.hibernate.dialect.MySQLDialect
+</property>
+
+<mapping resource="CD.hbm.xml"/> 
+</session-factory>
+</hibernate-configuration>

@@ -1,0 +1,81 @@
+package example.survey;
+
+import java.util.List;
+
+/**
+ *
+ * @author Eric Pugh
+ *
+ * @hibernate.class
+ *  table="SURVEYS"
+ */
+
+public class Survey {
+    private Long id;
+    private String name;
+    private Set questions;
+    
+    /**
+     * @hibernate.set
+     *  lazy="true"
+     *  inverse="true"
+     *  cascade="all"
+     * @hibernate.collection-one-to-many
+     *  class="example.survey.Question"
+     *
+     * @return Returns the questions.
+     */
+    public Set getQuestions() {
+        return questions;
+    }
+
+    /**
+     * @param question A question to add to the Survey
+     */
+    public void addQuestion(Question question) {
+        question.setSurvey(this);
+        getQuestions().add(question);
+    }
+
+    /**
+     * @param questions The questions to set.
+     */
+    public void setQuestions(Set questions) {
+        this.questions = questions;
+    }    
+
+    /**
+     * @hibernate.id generator-class="native" column="SURVEY_ID"
+     *
+     * @return Returns the id.
+     */
+    public Long getId() {
+        return id;
+    }
+
+    /**
+     *
+     * @param id
+     *            The id to set.
+     */
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    /**
+     * @return Returns the name.
+     */
+    public String getName() {
+        return name;
+    }
+
+    /**
+     * @param name
+     *            The name to set.
+     */
+    public void setName(String name) {
+        this.name = name;
+    }
+
+
+}

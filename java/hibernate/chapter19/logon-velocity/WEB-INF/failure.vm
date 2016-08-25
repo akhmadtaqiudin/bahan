@@ -1,0 +1,10 @@
+<HTML>
+<HEAD>
+  <TITLE>Failure</TITLE>
+</HEAD>
+<BODY>
+  Registration Failure!
+  Thanks for logging in $!registerForm.username
+  <P><A href="register.vm">Try Another?</A></P>
+</BODY>
+</HTML>

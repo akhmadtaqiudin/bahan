@@ -1,0 +1,41 @@
+<project xmlns:ant="jelly:ant">
+    <goal name="survey:helloworld" description="Emit Hello World">
+        <ant:echo message="${survey.helloworld}"/>
+    </goal>
+    
+    <goal name="survey:hibernate" description="Generate Hibernate files with Xdoclet">
+        <ant:taskdef name="hibernatedoclet" classname="xdoclet.modules.hibernate.HibernateDocletTask">
+            <ant:classpath>
+                <ant:path refid="maven.dependency.classpath"/>
+            </ant:classpath>
+        </ant:taskdef>    
+        
+        <ant:hibernatedoclet destDir="${maven.build.dir}/generated-sources" 
+            force="true" verbose="true">
+            <ant:hibernate version="2.0"/>
+            <ant:fileset dir="${maven.src.dir}/java" 
+                includes="**/*.java"/>
+            <ant:hibernatecfg
+                jdbcUrl="${survey.jdbcurl}"
+                driver="${survey.driver}"   
+                dialect="${survey.dialect}"
+                userName="${survey.username}"
+                password="${survey.password}"                
+            />                
+        </ant:hibernatedoclet>        
+    </goal>
+    
+    <preGoal name="java:compile">
+        <attainGoal name="xdoclet:hibernatedoclet"/>
+        <!-- 
+        Alternatively call survey:hibernate:
+        <attainGoal name="survey:hibernate"/>
+        -->
+        
+    </preGoal>
+    
+    <preGoal name="test:test-resources">
+        <attainGoal name="hibernate:schema-export"/>        
+    </preGoal>    
+    
+</project>

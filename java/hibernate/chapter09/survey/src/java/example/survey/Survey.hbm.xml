@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd">
+
+<hibernate-mapping>
+    <class
+        name="example.survey.Survey"
+        table="SURVEYS"
+        dynamic-update="false"
+        dynamic-insert="false"
+    >
+        <cache usage="read-write"/>
+        <id
+            name="id"
+            column="SURVEY_ID"
+            type="java.lang.Long"
+        >
+            <generator class="native">
+            </generator>
+        </id>
+
+        <property
+            name="name"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            access="property"
+            column="name"
+        />
+       </class>
+
+</hibernate-mapping>

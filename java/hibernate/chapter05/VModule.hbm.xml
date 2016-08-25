@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN" 
+"http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd">
+
+<hibernate-mapping>
+<class 	name="example.code.VModule" 
+table="vmodule">
+
+<id 	name="id"
+type="int" 
+unsaved-value="0"> 
+<generator	class="native"/>
+</id>
+
+<version	name="version" 
+column="version" 
+type="integer" 
+unsaved-value="undefined"/>
+
+<property	name="name"/>
+<property	name="owner"/> 
+</class>
+
+</hibernate-mapping>
